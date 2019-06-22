@@ -66,20 +66,17 @@ $("button").on("click", function () {
 })
 
 // clicking images to make them move
-$(".gif").on("click", function () {
+$(document).on("click", ".gif", function () {
     // making data-state a variable
     var state = $(this).attr("data-state");
     // checking the data-state and reversing it
     if (state === "still") {
-            // make it animate if still
-            
+        // make it animate if still
         $(this).attr("src", $(this).attr("data-move"));
-        
         $(this).attr("data-state", "move");
-    } 
+    }
     // make it still if animated
     else {
-                
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
