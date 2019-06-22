@@ -4,12 +4,14 @@ var apikey = "6Iw6Cta0oCIkkg1qd9wk9LjmDN5tfZM4"
 
 var games = ["Assassin's Creed", "God of War", "Destiny 2", "Apex Legends", "Super Mario Bros.", "Final Fantasy", "World of Warcraft", "HALO", "Forza Motorsports", "Sonic the Hedgehog"]
 // Creating buttons to put up top
-function makeButtons(){
+function makeButtons(){ 
+    
+    $("#buttons").empty();
 for (var i = 0; i < games.length; i++) {
     var btn = $("<button>")
     btn.text(games[i]);
     btn.attr("data-game", games[i]);
-    btn.attr("class", "display")
+    btn.addClass("display")
     $("#buttons").append(btn);
 }}
 // making a button for a new game
@@ -19,7 +21,6 @@ $("#makeButton").on("click", function(event){
     // grabbing the new game name from the search box
     var newGame = $("#search").val().trim()
     games.push(newGame);
-    $("#buttons").empty();
     makeButtons();
 })
 
@@ -65,7 +66,7 @@ $(document).on("click",".display", function () {
             // setting the Data-state
             gameImage.attr("data-state", "still")
             // giving the images a class
-            gameImage.attr("class", "gif")
+            gameImage.addClass("gif")
             // putting the div together
             gameDiv.append(rating);
             gameDiv.append(gameImage);
