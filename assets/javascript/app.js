@@ -36,7 +36,7 @@ $(document).on("click",".display", function () {
     console.log(videoGame);
     // query URL
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + videoGame + "&api_key=" + apikey + "&limit=5";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + videoGame + "&api_key=" + apikey + "&limit=10";
 
 
     // AJAX query
