@@ -4,17 +4,30 @@ var apikey = "6Iw6Cta0oCIkkg1qd9wk9LjmDN5tfZM4"
 
 var games = ["Assassin's Creed", "God of War", "Destiny 2", "Apex Legends", "Super Mario Bros.", "Final Fantasy", "World of Warcraft", "HALO", "Forza Motorsports", "Sonic the Hedgehog"]
 // Creating buttons to put up top
+function makeButtons(){
 for (var i = 0; i < games.length; i++) {
     var btn = $("<button>")
     btn.text(games[i]);
     btn.attr("data-game", games[i]);
+    btn.attr("class", "display")
     $("#buttons").append(btn);
-}
+}}
+// making a button for a new game
 
+$("#makeButton").on("click", function(event){
+    event.preventDefault();
+    // grabbing the new game name from the search box
+    var newGame = $("#search").val().trim()
+    games.push(newGame);
+    $("#buttons").empty();
+    makeButtons();
+})
+
+makeButtons();
 
 // on click
 
-$("button").on("click", function () {
+$(document).on("click",".display", function () {
     // q = grabbed from text input box.
     // limit = number of images to grab
 
