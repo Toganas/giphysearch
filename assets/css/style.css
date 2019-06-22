@@ -3,3 +3,7 @@
     right: 2em;
     top: 3em;
 }
+
+body {
+    background-image: url(../images/eziobg.png);
+}
