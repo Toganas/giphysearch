@@ -32,14 +32,26 @@ $("button").on("click", function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        
+
         console.log(queryURL);
         console.log(response);
 
         var results = response.data;
-
-        for (var i =0; i<results.length; i++){
-            
+        // for loop going through results
+        for (var i = 0; i < results.length; i++) {
+            // div tag
+            var gameDiv = $("<div>");
+            // variable for the rating of the gif
+            var rating = $("<p>").text("Rating: " + results[i].rating);
+            // img tag creation
+            var gameImage = $("<img>");
+            // attaching the src to the img tag
+            gameImage.attr("src", results[i].images.fixed_height_still.url);
+            // putting the div together
+            gameDiv.append(rating);
+            gameDiv.append(gameImage);
+            // putting the Images on the page
+            $("#image").prepend(gameDiv);
         }
     })
 
