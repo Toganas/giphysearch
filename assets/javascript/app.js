@@ -45,14 +45,43 @@ $("button").on("click", function () {
             var rating = $("<p>").text("Rating: " + results[i].rating);
             // img tag creation
             var gameImage = $("<img>");
-            // attaching the src to the img tag
+            // attaching the attributes to the img tag
             gameImage.attr("src", results[i].images.fixed_height_still.url);
+            gameImage.attr("data-still", results[i].images.fixed_height_still.url);
+            gameImage.attr("data-move", results[i].images.fixed_height.url)
+            // setting the Data-state
+            gameImage.attr("data-state", "still")
+            // giving the images a class
+            gameImage.attr("class", "gif")
             // putting the div together
             gameDiv.append(rating);
             gameDiv.append(gameImage);
+
             // putting the Images on the page
             $("#image").prepend(gameDiv);
+
         }
     })
 
 })
+
+// clicking images to make them move
+$(".gif").on("click", function () {
+    // making data-state a variable
+    var state = $(this).attr("data-state");
+    // checking the data-state and reversing it
+    if (state === "still") {
+            // make it animate if still
+            
+        $(this).attr("src", $(this).attr("data-move"));
+        
+        $(this).attr("data-state", "move");
+    } 
+    // make it still if animated
+    else {
+                
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+    console.log(this);
+});
